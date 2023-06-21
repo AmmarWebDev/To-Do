@@ -1,0 +1,97 @@
+body {
+   background-color: var(--bgColor);
+}
+
+:root {
+   --bgColor: whitesmoke;
+}
+
+main {
+   font-family: Arial, Helvetica, sans-serif;
+   margin: auto;
+   font-size: 40px;
+   width: 95%;
+}
+
+main *:focus {
+   outline: none;
+}
+
+table {
+   background-color: black;
+   width: 100%;
+}
+
+th {
+   background-color: var(--bgColor);
+   text-transform: capitalize;
+}
+
+td {
+   background-color: var(--bgColor);
+   padding: 3px 10px;
+}
+
+thead th.nos {
+   width: 5%;
+   padding: 0 10px;
+}
+
+thead td, tbody td {
+   cursor: default;
+}
+
+tbody tr {
+   counter-increment: numbs;
+}
+
+tbody td.editable {
+   cursor: text;
+   text-overflow: ellipsis;
+}
+
+tbody td.editable {
+   width: 90%;
+}
+
+tbody td input {
+   --size: 30px;
+   display: inline-block;
+   width: var(--size);
+   height: var(--size);
+   cursor: pointer;
+   margin: 0 3%;
+}
+
+td.check {
+   position: relative;
+}
+
+input + span {
+   line-break: anywhere;
+   display: inline-block;
+}
+
+input:checked + span {
+   text-decoration: line-through;
+}
+
+tbody td.count {
+   text-align: center;
+}
+
+tbody td.count::before {
+   content: counter(numbs);
+}
+
+tbody td.check span::first-letter {
+   text-transform: capitalize;
+}
+
+tfoot {
+   text-transform: capitalize;
+}
+
+tfoot td {
+   padding: 10px;
+}
