@@ -78,11 +78,6 @@ tbody tr {
 	counter-increment: numbs;
 }
 
-tbody td.editable {
-	text-overflow: ellipsis;
-	width: 90%;
-}
-
 td.check {
 	position: relative;
 }
@@ -94,35 +89,55 @@ tbody td input[type = checkbox] {
 	height: var(--dimensions);
 	cursor: pointer;
 	margin: 0 3%;
+	position: relative;
 }
 
-tbody td label {
+tbody td input[type = checkbox]::after {
+	content: "";
 	position: absolute;
-	--dimensions: 30px;
+	left: 0;
+	top: 0;
 	width: var(--dimensions);
 	height: var(--dimensions);
+	background-color: var(--bgColor);
+	border: 1px solid var(--theme-color);
+	transition: .3s;
+}
+
+tbody td input[type = checkbox]:checked:after {
+	background-color: var(--theme-color);
+}
+
+tbody td input[type = checkbox]::before {
+	content: "\f00c";
+	position: absolute;
+	left: 3px;
+	top: -2px;
 	z-index: 1;
-	background-color: red;
-	left: 42px;
-	top: 10px;
-	cursor: pointer;
-	border-radius: 3px;
+	font-family: "FontAwesome";
+	color: var(--bgColor);
+	font-size: 30px;
+	transform: scale(0);
+	transition: .3s;
+}
+
+tbody td input[type = checkbox]:checked:before {
+	transform: scale(1);
 }
 
 input[type = checkbox] + input[type = text] {
 	line-break: anywhere;
 	display: inline-block;
+	height: 100%;
+	width: 90%;
+	background-color: var(--bgColor);
+	border: none;
+	transition: .3s;
 }
 
 input[type = checkbox]:checked + input[type = text] {
 	text-decoration: line-through;
-}
-
-input[type = text] {
-	height: 100%;
-	width: calc(92% - 20px);
-	background-color: var(--bgColor);
-	border: none;
+	color: var(--theme-color);
 }
 
 tbody td.count {
