@@ -1,97 +1,124 @@
-body {
-   background-color: var(--bgColor);
-}
+* { box-sizing: border-box }
 
 :root {
-   --bgColor: whitesmoke;
+	--bgColor: whitesmoke;
+}
+
+body {
+	background-color: var(--bgColor);
 }
 
 main {
-   font-family: Arial, Helvetica, sans-serif;
-   margin: auto;
-   font-size: 40px;
-   width: 95%;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: auto;
+	font-size: 40px;
+	width: 95%;
+	padding: 20px;
+}
+
+@media (max-width: 1045px) {
+	main {
+		padding: 20px 30px;
+	}
+}
+
+@media (max-width: 880px) {
+	main {
+		padding: 20px 20px;
+	}
+}
+
+@media (max-width: 645px) {
+	main {
+		padding: 20px 10px;
+	}
+}
+
+@media (max-width: 545px) {
+	main {
+		padding: 20px 5px;
+	}
 }
 
 main *:focus {
-   outline: none;
+	outline: none;
 }
 
 table {
-   background-color: black;
-   width: 100%;
+	background-color: black;
+	width: 100%;
 }
 
 th {
-   background-color: var(--bgColor);
-   text-transform: capitalize;
+	background-color: var(--bgColor);
+	text-transform: capitalize;
 }
 
 td {
-   background-color: var(--bgColor);
-   padding: 3px 10px;
+	background-color: var(--bgColor);
+	padding: 3px 10px;
 }
 
 thead th.nos {
-   width: 5%;
-   padding: 0 10px;
+	width: 5%;
+	padding: 0 10px;
 }
 
 thead td, tbody td {
-   cursor: default;
+	cursor: default;
 }
 
 tbody tr {
-   counter-increment: numbs;
+	counter-increment: numbs;
 }
 
 tbody td.editable {
-   cursor: text;
-   text-overflow: ellipsis;
+	cursor: text;
+	text-overflow: ellipsis;
 }
 
 tbody td.editable {
-   width: 90%;
+	width: 90%;
 }
 
 tbody td input {
-   --size: 30px;
-   display: inline-block;
-   width: var(--size);
-   height: var(--size);
-   cursor: pointer;
-   margin: 0 3%;
+	--size: 30px;
+	display: inline-block;
+	width: var(--size);
+	height: var(--size);
+	cursor: pointer;
+	margin: 0 3%;
 }
 
 td.check {
-   position: relative;
+	position: relative;
 }
 
 input + span {
-   line-break: anywhere;
-   display: inline-block;
+	line-break: anywhere;
+	display: inline-block;
 }
 
 input:checked + span {
-   text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 tbody td.count {
-   text-align: center;
+	text-align: center;
 }
 
 tbody td.count::before {
-   content: counter(numbs);
+	content: counter(numbs);
 }
 
 tbody td.check span::first-letter {
-   text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 tfoot {
-   text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 tfoot td {
-   padding: 10px;
+	padding: 10px;
 }
