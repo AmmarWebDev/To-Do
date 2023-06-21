@@ -1,7 +1,13 @@
 * { box-sizing: border-box }
 
 :root {
-	--bgColor: whitesmoke;
+	--bgColor: #fff;
+	--theme-color: #50bcff;
+}
+
+::selection {
+	background-color: var(--theme-color);
+	color: #fff;
 }
 
 body {
@@ -73,34 +79,50 @@ tbody tr {
 }
 
 tbody td.editable {
-	cursor: text;
 	text-overflow: ellipsis;
-}
-
-tbody td.editable {
 	width: 90%;
-}
-
-tbody td input {
-	--size: 30px;
-	display: inline-block;
-	width: var(--size);
-	height: var(--size);
-	cursor: pointer;
-	margin: 0 3%;
 }
 
 td.check {
 	position: relative;
 }
 
-input + span {
+tbody td input[type = checkbox] {
+	--dimensions: 30px;
+	display: inline-block;
+	width: var(--dimensions);
+	height: var(--dimensions);
+	cursor: pointer;
+	margin: 0 3%;
+}
+
+tbody td label {
+	position: absolute;
+	--dimensions: 30px;
+	width: var(--dimensions);
+	height: var(--dimensions);
+	z-index: 1;
+	background-color: red;
+	left: 42px;
+	top: 10px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+input[type = checkbox] + input[type = text] {
 	line-break: anywhere;
 	display: inline-block;
 }
 
-input:checked + span {
+input[type = checkbox]:checked + input[type = text] {
 	text-decoration: line-through;
+}
+
+input[type = text] {
+	height: 100%;
+	width: calc(92% - 20px);
+	background-color: var(--bgColor);
+	border: none;
 }
 
 tbody td.count {
@@ -109,14 +131,6 @@ tbody td.count {
 
 tbody td.count::before {
 	content: counter(numbs);
-}
-
-tbody td.check span::first-letter {
-	text-transform: capitalize;
-}
-
-tfoot {
-	text-transform: capitalize;
 }
 
 tfoot td {
